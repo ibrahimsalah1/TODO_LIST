@@ -15,6 +15,7 @@
 		7D082013225D017200D7C6E3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D082012225D017200D7C6E3 /* Task.swift */; };
 		7D082015225D06AD00D7C6E3 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D082014225D06AD00D7C6E3 /* AddTaskViewController.swift */; };
 		7D5A58C6225D2D8300B34756 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A58C5225D2D8300B34756 /* TaskTableViewCell.swift */; };
+		7D5A58C8225E654700B34756 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5A58C7225E654700B34756 /* FancyView.swift */; };
 		80A8B0E4CC62C52BD37DA7BF /* Pods_TO_DO_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6D858CFB766B22FAE67A44 /* Pods_TO_DO_List.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		7D082012225D017200D7C6E3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7D082014225D06AD00D7C6E3 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		7D5A58C5225D2D8300B34756 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		7D5A58C7225E654700B34756 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyView.swift; path = "../../../Zad/Zad/Supporting Files/FancyView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7D081FFB225CFEC300D7C6E3 /* AppDelegate.swift */,
+				7D5A58C7225E654700B34756 /* FancyView.swift */,
 				7D082002225CFEC600D7C6E3 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -261,6 +264,7 @@
 			files = (
 				7D081FFE225CFEC300D7C6E3 /* TasksViewController.swift in Sources */,
 				7D082015225D06AD00D7C6E3 /* AddTaskViewController.swift in Sources */,
+				7D5A58C8225E654700B34756 /* FancyView.swift in Sources */,
 				7D5A58C6225D2D8300B34756 /* TaskTableViewCell.swift in Sources */,
 				7D082013225D017200D7C6E3 /* Task.swift in Sources */,
 				7D081FFC225CFEC300D7C6E3 /* AppDelegate.swift in Sources */,
