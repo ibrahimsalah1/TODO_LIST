@@ -22,6 +22,16 @@ class TasksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.purple.cgColor, UIColor.yellow.cgColor]
+        gradient.startPoint = CGPoint(x:0, y:0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.frame = view.bounds
+        view.layer.addSublayer(gradient)
+        let backgroundView = UIView(frame: tasksTableView.bounds)
+        backgroundView.layer.insertSublayer(gradient, at: 0)
+        tasksTableView.backgroundView = backgroundView
     }
     
     override func viewWillAppear(_ animated: Bool) {

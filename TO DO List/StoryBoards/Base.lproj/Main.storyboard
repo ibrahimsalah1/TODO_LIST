@@ -33,7 +33,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="zi9-aA-Rsb">
                                     <rect key="frame" x="0.0" y="645" width="375" height="2"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="62" id="B6r-OL-yDH" customClass="TaskTableViewCell" customModule="TO_DO_List" customModuleProvider="target">
@@ -71,6 +71,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="FVO-9A-Mag" firstAttribute="top" secondItem="0wX-ih-a4n" secondAttribute="top" constant="5" id="hNO-xw-SQH"/>
                                                 <constraint firstAttribute="trailing" secondItem="FVO-9A-Mag" secondAttribute="trailing" constant="15" id="jvg-iU-bAa"/>
@@ -83,6 +84,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="createdAt" destination="VvD-hb-Sm5" id="nd4-Ke-Vvj"/>
                                             <outlet property="taskTitle" destination="tWW-YY-MfR" id="VF2-5a-0nZ"/>
@@ -206,6 +208,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vqN-3c-i9y"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPickUpData" destination="Qr0-CW-apC" id="grP-G4-7cl"/>
                         <outlet property="endDataTextField" destination="j82-ch-OSG" id="czm-CB-mHD"/>

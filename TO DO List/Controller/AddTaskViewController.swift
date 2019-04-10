@@ -42,6 +42,13 @@ class AddTaskViewController: UIViewController {
         toolBar.setItems([doneButton], animated: true)
         endDataTextField.inputAccessoryView = toolBar
         
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.purple.cgColor, UIColor.yellow.cgColor]
+        gradient.startPoint = CGPoint(x:0, y:0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.frame = view.bounds
+        view.layer.addSublayer(gradient)
+        self.view.layer.insertSublayer(gradient, at: 0)
         
     }
     
