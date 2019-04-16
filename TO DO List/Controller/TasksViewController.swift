@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  TO DO List
 //
-//  Created by Ibrahim Salah on 4/9/19.
+//  Created by Ibrahim Salah on 4/10/19.
 //  Copyright © 2019 Ibrahim Salah. All rights reserved.
 //
 
@@ -22,16 +22,6 @@ class TasksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.purple.cgColor, UIColor.yellow.cgColor]
-        gradient.startPoint = CGPoint(x:0, y:0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.frame = view.bounds
-        view.layer.addSublayer(gradient)
-        let backgroundView = UIView(frame: tasksTableView.bounds)
-        backgroundView.layer.insertSublayer(gradient, at: 0)
-        tasksTableView.backgroundView = backgroundView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,8 +30,8 @@ class TasksViewController: UIViewController {
     }
     
     func getData (){
-        tasks =  realm.objects(Task.self)
-        currentTasks = tasks
+        tasks =  realm.objects(Task.self).sorted(byKeyPath: "createdAt")
+        currentTasks = tasks.sorted(byKeyPath: "createdAt")
         taskCategory = Set(tasks.value(forKeyPath: "category") as! [Int]).sorted()
         print(taskCategory)
         if tasks.count == 0 {
@@ -70,8 +60,8 @@ extension TasksViewController : UITableViewDataSource, UITableViewDelegate{
    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .lightGray
-            headerView.textLabel?.textColor = .darkGray
+            headerView.contentView.backgroundColor = #colorLiteral(red: 0.3012603521, green: 0.1685620546, blue: 0.4671290517, alpha: 1)
+            headerView.textLabel?.textColor = .white
         }
     }
     

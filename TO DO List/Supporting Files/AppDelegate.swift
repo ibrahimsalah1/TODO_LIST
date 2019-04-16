@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TO DO List
 //
-//  Created by Ibrahim Salah on 4/9/19.
+//  Created by Ibrahim Salah on 4/10/19.
 //  Copyright © 2019 Ibrahim Salah. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        UINavigationBar.appearance().tintColor = UIColor.white 
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
             center.delegate = self

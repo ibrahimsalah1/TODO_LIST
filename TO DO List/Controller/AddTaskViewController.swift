@@ -2,7 +2,7 @@
 //  AddTaskViewController.swift
 //  TO DO List
 //
-//  Created by Ibrahim Salah on 4/9/19.
+//  Created by Ibrahim Salah on 4/10/19.
 //  Copyright © 2019 Ibrahim Salah. All rights reserved.
 //
 
@@ -10,10 +10,11 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class AddTaskViewController: UIViewController {
+class AddTaskViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var taskNameTextField:UITextField!
     @IBOutlet weak var endDataTextField: UITextField!
     @IBOutlet weak var categoryPickUpData: UITextField!
+    @IBOutlet weak var detailsTextView: UITextView!
     
 
     var CategoryPickerView : UIPickerView!
@@ -22,6 +23,9 @@ class AddTaskViewController: UIViewController {
     var category = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailsTextView.text = "Details"
+        detailsTextView.textColor = UIColor.lightGray
+        
         self.navigationItem.title = "Add new Task"
         // print(Realm.Configuration.defaultConfiguration.fileURL)
 
@@ -41,17 +45,23 @@ class AddTaskViewController: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneTapped))
         toolBar.setItems([doneButton], animated: true)
         endDataTextField.inputAccessoryView = toolBar
-        
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.purple.cgColor, UIColor.yellow.cgColor]
-        gradient.startPoint = CGPoint(x:0, y:0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.frame = view.bounds
-        view.layer.addSublayer(gradient)
-        self.view.layer.insertSublayer(gradient, at: 0)
-        
+ 
     }
     
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Details"
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
     @objc func doneTapped(){
         let dateFormatter = DateFormatter()
@@ -70,7 +80,13 @@ class AddTaskViewController: UIViewController {
         return false
     }
     
-    @IBAction func addNewTasKButtonTapped(sender:UIButton){
+    func alert (name :String) {
+        let alert = UIAlertController(title: "Error!", message: "Please fill all data, \(name) is required!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    @IBAction func addNewTasKButtonTapped(sender:UIBarButtonItem){
         do{
             // add identifier for notification
             let uuid = NSUUID().uuidString
@@ -78,10 +94,29 @@ class AddTaskViewController: UIViewController {
 
             let realm = try Realm()
             let newTask = Task()
-            if taskNameTextField.text == "" {return}
-            if endDataTextField.text == "" {return}
-            if categoryPickUpData.text == "" {return}
+            if taskNameTextField.text == "" {
+                alert(name: "the task name")
+                return
+                
+            }
+            if detailsTextView.text == "" {
+                alert(name: "details about task")
+                return
+                
+            }
+            if endDataTextField.text == "" {
+                alert(name: "the end date of task")
+                return
+                
+            }
+            if categoryPickUpData.text == "" {
+                alert(name: "the category of task")
+                return
+                
+            }
+            
             newTask.title = taskNameTextField.text
+            newTask.details = detailsTextView.text
             newTask.createdAt = endDataTextField.text
             newTask.category = self.category
             newTask.uuid = uuid
